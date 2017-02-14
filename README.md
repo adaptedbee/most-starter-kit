@@ -46,9 +46,7 @@ README.md               --> файл с описанием проекта
 ## Todo
 
 * [ ] Обработка HTML
+* [ ] Сборка своих скриптов + babel
 * [ ] Линтеры HTML, CSS, JS
 * [ ] Livereload
 * [ ] Сборка svg-спрайтов
-
-* [ ] Обработка less, stylus
-* [ ] babel

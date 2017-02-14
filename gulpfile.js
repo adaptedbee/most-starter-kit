@@ -14,6 +14,8 @@ var uglify = require('gulp-uglify');
 
 var imagemin = require('gulp-imagemin');
 
+var browserSync = require('browser-sync').create();
+
 // Обработка HTML
 
 // Обработка CSS
@@ -28,7 +30,8 @@ gulp.task('sass', function(){
     .pipe(gulp.dest('build/css'))
     .pipe(csso())
     .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('build/css'));
+    .pipe(gulp.dest('build/css'))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 // Обработка JS
@@ -39,23 +42,39 @@ gulp.task('scripts', function(){
     ])
     .pipe(concat('libs.min.js'))
     // .pipe(uglify())
-    .pipe(gulp.dest('build/js'));
+    .pipe(gulp.dest('build/js'))
+    .pipe(browserSync.reload({stream: true}));
 });
 
 // Обработка изображений
 gulp.task('images', function(){
   return gulp.src('src/img/**/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('build/img'));
+    .pipe(gulp.dest('build/img'))
+    .pipe(browserSync.reload({stream: true}));
+});
+
+// LiveReload
+gulp.task('browser-sync', function(){
+  browserSync.init({
+    server: {
+      baseDir: './build'
+    },
+    tunnel: true,
+    host: 'localhost',
+    port: 1337,
+    open: true,
+    logPrefix: "done"
+  });
 });
 
 // Настройка watch
-gulp.task('watch', function(){
+gulp.task('watch', ['browser-sync'], function(){
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['js']);
   gulp.watch('src/img/**/*', ['images']);
 });
 
 gulp.task('default', function(){
-  gulp.run('sass', 'scripts', 'images');
+  gulp.run('browser-sync', 'watch');
 });

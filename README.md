@@ -49,7 +49,6 @@ README.md               --> файл с описанием проекта
 * [ ] Линтеры HTML, CSS, JS
 * [ ] Livereload
 * [ ] Сборка svg-спрайтов
-* [ ] Шаблон html-страницы
 
 * [ ] Обработка less, stylus
 * [ ] babel

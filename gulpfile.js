@@ -2,6 +2,7 @@
 var gulp = require('gulp');
 
 // Подключаем плагины
+var html5Lint = require('gulp-html5-lint');
 
 var sass = require('gulp-sass');
 var csso = require('gulp-csso');
@@ -17,6 +18,12 @@ var imagemin = require('gulp-imagemin');
 var browserSync = require('browser-sync').create();
 
 // Обработка HTML
+gulp.task('html', function() {
+  return gulp.src('src/*.html')
+    // .pipe(html5Lint())
+    .pipe(gulp.dest('build/'))
+    .pipe(browserSync.reload({stream: true}));
+});
 
 // Обработка CSS
 gulp.task('sass', function(){
@@ -70,6 +77,7 @@ gulp.task('browser-sync', function(){
 
 // Настройка watch
 gulp.task('watch', ['browser-sync'], function(){
+  gulp.watch('src/index.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['js']);
   gulp.watch('src/img/**/*', ['images']);

@@ -12,6 +12,8 @@ var autoprefixer = require('autoprefixer');
 
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var eslint = require('gulp-eslint');
+var babel = require('gulp-babel');
 
 var imagemin = require('gulp-imagemin');
 
@@ -42,7 +44,7 @@ gulp.task('sass', function(){
 });
 
 // Обработка JS
-gulp.task('scripts', function(){
+gulp.task('vendor-scripts', function(){
   return gulp.src([
     'src/bower_components/jquery/dist/jquery.min.js',
     'src/bower_components/slick-carousel/slick/slick.min.js'
@@ -50,6 +52,20 @@ gulp.task('scripts', function(){
     .pipe(concat('libs.min.js'))
     // .pipe(uglify())
     .pipe(gulp.dest('build/js'))
+    .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('my-scripts', function () {
+  return gulp.src('src/js/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+    .pipe(babel())
+    .pipe(concat('main.js'))
+    .pipe(gulp.dest('build/js/'))
+    .pipe(uglify())
+    .pipe(concat('main.min.js'))
+    .pipe(gulp.dest('build/js/'))
     .pipe(browserSync.reload({stream: true}));
 });
 
@@ -71,7 +87,7 @@ gulp.task('browser-sync', function(){
     host: 'localhost',
     port: 1337,
     open: true,
-    logPrefix: "done"
+    logPrefix: 'done'
   });
 });
 
@@ -79,7 +95,7 @@ gulp.task('browser-sync', function(){
 gulp.task('watch', ['browser-sync'], function(){
   gulp.watch('src/index.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
-  gulp.watch('src/js/**/*.js', ['js']);
+  gulp.watch('src/js/**/*.js', ['my-scripts']);
   gulp.watch('src/img/**/*', ['images']);
 });
 

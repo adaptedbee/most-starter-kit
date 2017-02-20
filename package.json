@@ -22,9 +22,11 @@
     "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-stylelint": "^3.8.0",
     "gulp-uglify": "^2.0.1",
     "imagemin-jpeg-recompress": "^5.1.0",
-    "imagemin-pngquant": "^5.0.0"
+    "imagemin-pngquant": "^5.0.0",
+    "stylelint-csstree-validator": "^1.1.1"
   },
   "dependencies": {}
 }

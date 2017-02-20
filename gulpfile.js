@@ -5,6 +5,8 @@ var gulp = require('gulp');
 var html5Lint = require('gulp-html5-lint');
 
 var sass = require('gulp-sass');
+var stylelint = require('gulp-stylelint');
+
 var csso = require('gulp-csso');
 var rename = require('gulp-rename');
 var postcss = require('gulp-postcss');
@@ -17,7 +19,7 @@ var babel = require('gulp-babel');
 
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-var jpegrecompress = require('imagemin-jpeg-recompress');
+var jpegRecompress = require('imagemin-jpeg-recompress');
 
 var notify = require("gulp-notify");
 
@@ -35,6 +37,16 @@ gulp.task('html', function() {
 gulp.task('sass', function(){
   return gulp.src('src/scss/main.scss')
     .pipe(sass().on('error', function(err) {
+      return notify().write(err);
+    }))
+    .pipe(stylelint({
+      failAfterError: true,
+      debug: true,
+      reporters: [{
+        formatter: 'string',
+        console: true
+      }]
+    }).on('error', function(err) {
       return notify().write(err);
     }))
     .pipe(postcss([ autoprefixer({
@@ -80,7 +92,7 @@ gulp.task('my-scripts', function () {
 // Обработка изображений
 gulp.task('images', function(){
   return gulp.src('src/img/**/*')
-    .pipe(imagemin([jpegrecompress({
+    .pipe(imagemin([jpegRecompress({
         quality: 'medium'
       }), pngquant()],{
       progressive: true,

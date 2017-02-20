@@ -19,6 +19,8 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var jpegrecompress = require('imagemin-jpeg-recompress');
 
+var notify = require("gulp-notify");
+
 var browserSync = require('browser-sync').create();
 
 // Обработка HTML
@@ -32,7 +34,9 @@ gulp.task('html', function() {
 // Обработка CSS
 gulp.task('sass', function(){
   return gulp.src('src/scss/main.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass().on('error', function(err) {
+      return notify().write(err);
+    }))
     .pipe(postcss([ autoprefixer({
       browsers: ['> 1%', 'last 2 versions'],
       cascade: true
@@ -61,7 +65,9 @@ gulp.task('my-scripts', function () {
   return gulp.src('src/js/*.js')
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
+    .pipe(eslint.failAfterError().on('error', function(err) {
+      return notify().write(err);
+    }))
     .pipe(babel())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('build/js/'))

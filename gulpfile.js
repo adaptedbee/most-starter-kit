@@ -16,6 +16,8 @@ var eslint = require('gulp-eslint');
 var babel = require('gulp-babel');
 
 var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+var jpegrecompress = require('imagemin-jpeg-recompress');
 
 var browserSync = require('browser-sync').create();
 
@@ -72,8 +74,15 @@ gulp.task('my-scripts', function () {
 // Обработка изображений
 gulp.task('images', function(){
   return gulp.src('src/img/**/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('build/img'))
+    .pipe(imagemin([jpegrecompress({
+        quality: 'medium'
+      }), pngquant()],{
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}],
+      verbose: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest('build/img/'))
     .pipe(browserSync.reload({stream: true}));
 });
 

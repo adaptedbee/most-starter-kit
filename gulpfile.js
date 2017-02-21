@@ -21,6 +21,8 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var jpegRecompress = require('imagemin-jpeg-recompress');
 
+var svgSymbols = require('gulp-svg-symbols');
+
 var notify = require("gulp-notify");
 
 var browserSync = require('browser-sync').create();
@@ -102,6 +104,12 @@ gulp.task('images', function(){
     }))
     .pipe(gulp.dest('build/img/'))
     .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('sprite', function() {
+  return gulp.src('src/img/icons/*.svg')
+    .pipe(svgSymbols())
+    .pipe(gulp.dest('build/img/icons/'));
 });
 
 // LiveReload

@@ -23,6 +23,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-stylelint": "^3.8.0",
+    "gulp-svg-symbols": "^2.0.2",
     "gulp-uglify": "^2.0.1",
     "imagemin-jpeg-recompress": "^5.1.0",
     "imagemin-pngquant": "^5.0.0",

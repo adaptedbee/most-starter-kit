@@ -112,6 +112,12 @@ gulp.task('sprite', function() {
     .pipe(gulp.dest('build/img/icons/'));
 });
 
+// Обработка шрифтов
+gulp.task('fonts', function() {
+  return gulp.src('src/fonts/**/*.*')
+    .pipe(gulp.dest('build/fonts/'));
+});
+
 // LiveReload
 gulp.task('browser-sync', function(){
   browserSync.init({
@@ -126,12 +132,21 @@ gulp.task('browser-sync', function(){
   });
 });
 
+gulp.task('build', [
+  'html',
+  'sass',
+  'my-scripts',
+  'images',
+  'fonts'
+]);
+
 // Настройка watch
 gulp.task('watch', ['browser-sync'], function(){
   gulp.watch('src/index.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['my-scripts']);
   gulp.watch('src/img/**/*', ['images']);
+  gulp.watch('src/fonts/**/*', ['fonts']);
 });
 
 gulp.task('default', function(){

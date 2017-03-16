@@ -67,10 +67,29 @@ gulp.task('sass', function(){
 gulp.task('vendor-scripts', function(){
   return gulp.src([
     'src/bower_components/jquery/dist/jquery.min.js',
-    'src/bower_components/slick-carousel/slick/slick.min.js'
+    // 'src/bower_components/bootstrap/dist/js/bootstrap.min.js',
+    // 'src/bower_components/chosen/chosen.jquery.js',
+    // 'src/bower_components/device.js/device.js',
+    // 'src/bower_components/dropzone/dist/min/dropzone.min.js',
+    // 'src/bower_components/fotorama/fotorama.js',
+    // 'src/bower_components/fullpage.js/dist/jquery.fullpage.min.js',
+    // 'src/bower_components/gsap/src/minified/TweenMax.min.js',
+    // 'src/bower_components/jquery-file-download/src/Scripts/jquery.fileDownload.js',
+    // 'src/bower_components/jquery-gridder/dist/js/jquery.gridder.min.js',
+    // 'src/bower_components/jquery-mask-plugin/jquery.mask.min.js',
+    // 'src/bower_components/jquery-ui/jquery-ui.min.js',
+    // 'src/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js',
+    // 'src/bower_components/retinajs/dist/retina.min.js',
+    // 'src/bower_components/scrollIt.min/index.js',
+    // 'src/bower_components/skrollr/dist/skrollr.min.js',
+    // 'src/bower_components/slick-carousel/slick/slick.min.js',
+    // 'src/bower_components/svgxuse/svgxuse.min.js',
+    // 'src/bower_components/swiper/dist/js/swiper.jquery.min.js',
+    // 'src/bower_components/velocity/velocity.min.js',
+    // 'src/bower_components/webui-popover/dist/jquery.webui-popover.min.js',
     ])
     .pipe(concat('libs.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('build/js'))
     .pipe(browserSync.reload({stream: true}));
 });

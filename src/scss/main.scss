@@ -1,24 +1,26 @@
+/* stylelint-disable */
 // @import 'common/__normalize';
 @import '../bower_components/normalize.css/normalize';
 
 // @import 'vendor/bootstrap-4.0.0-alpha.6/bootstrap-grid';
 
-// @import '../bower_components/bootstrap/dist/css/bootstrap.min';
-// @import '../bower_components/bootstrap/dist/css/bootstrap-theme.min';
-// @import '../bower_components/chosen/chosen';
-// @import '../bower_components/dropzone/dist/min/dropzone.min';
-// @import '../bower_components/font-awesome/css/font-awesome.min';
-// @import '../bower_components/fotorama/fotorama';
-// @import '../bower_components/fullpage.js/dist/jquery.fullpage.min';
-// @import '../bower_components/hint.css/hint.min';
-// @import '../bower_components/jquery-gridder/dist/css/jquery.gridder.min';
-// @import '../bower_components/jquery-ui/themes/base/jquery-ui.min';
-// @import '../bower_components/magnific-popup/dist/magnific-popup';
-// @import '../bower_components/normalize.css/normalize';
-// @import '../bower_components/slick-carousel/slick/slick.scss';
-// @import '../bower_components/slick-carousel/slick/slick-theme.scss';
-// @import '../bower_components/swiper/dist/css/swiper.min';
-// @import '../bower_components/webui-popover/dist/jquery.webui-popover.min';
+@import '../bower_components/bootstrap/dist/css/bootstrap.min';
+@import '../bower_components/bootstrap/dist/css/bootstrap-theme.min';
+@import '../bower_components/chosen/chosen';
+@import '../bower_components/dropzone/dist/min/dropzone.min';
+@import '../bower_components/font-awesome/css/font-awesome.min';
+@import '../bower_components/fotorama/fotorama';
+@import '../bower_components/fullpage.js/dist/jquery.fullpage.min';
+@import '../bower_components/hint.css/hint.min';
+@import '../bower_components/jquery-gridder/dist/css/jquery.gridder.min';
+@import '../bower_components/jquery-ui/themes/base/jquery-ui.min';
+@import '../bower_components/magnific-popup/dist/magnific-popup';
+@import '../bower_components/normalize.css/normalize';
+@import '../bower_components/slick-carousel/slick/slick.scss';
+@import '../bower_components/slick-carousel/slick/slick-theme.scss';
+@import '../bower_components/swiper/dist/css/swiper.min';
+@import '../bower_components/webui-popover/dist/jquery.webui-popover.min';
+/* stylelint-enable */
 
 @import 'common/variables';
 @import 'common/general';

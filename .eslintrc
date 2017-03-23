@@ -4,6 +4,12 @@
     "browser": true,
     "jquery": true
   },
+  "globals": {
+    "device": true,
+    "TweenMax": true,
+    "Power3": true,
+    "Swiper": true
+  },
   "rules": {
     "block-scoped-var": "error",
     "comma-dangle": "off",

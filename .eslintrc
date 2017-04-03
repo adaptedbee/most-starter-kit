@@ -5,9 +5,10 @@
     "jquery": true
   },
   "globals": {
+    "angular": true,
     "device": true,
-    "TweenMax": true,
     "Power3": true,
+    "TweenMax": true,
     "Swiper": true
   },
   "rules": {
@@ -20,13 +21,17 @@
     "indent": "error",
     "keyword-spacing": "error",
     "linebreak-style": "off",
+    "no-else-return": "warn",
     "newline-per-chained-call": "warn",
     "no-console": "off",
     "no-extra-semi": "error",
+    "no-lonely-if": "warn",
     "no-mixed-spaces-and-tabs": "warn",
     "no-multi-assign": "error",
     "no-multi-spaces": "error",
+    "no-multi-str": "error",
     "no-param-reassign": "warn",
+    "no-plusplus": "off",
     "no-redeclare": "error",
     "no-tabs": "warn",
     "no-undef": "error",
@@ -45,6 +50,8 @@
     "space-before-blocks": "error",
     "space-before-function-paren": "warn",
     "space-infix-ops": "error",
+    "space-in-parens": "error",
+    "spaced-comment": "warn",
     "quotes": "warn",
     "vars-on-top": "error"
   }

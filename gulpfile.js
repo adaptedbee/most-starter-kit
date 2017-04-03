@@ -67,10 +67,13 @@ gulp.task('sass', function(){
 gulp.task('vendor-scripts', function(){
   return gulp.src([
     'src/bower_components/jquery/dist/jquery.min.js',
+    // 'src/bower_components/angular/angular.min.js',
     // 'src/bower_components/bootstrap/dist/js/bootstrap.min.js',
     // 'src/bower_components/chosen/chosen.jquery.js',
+    // 'src/bower_components/Croppie/croppie.min.js',
     // 'src/bower_components/device.js/device.js',
     // 'src/bower_components/dropzone/dist/min/dropzone.min.js',
+    // 'src/bower_components/exif-js/exif.js',
     // 'src/bower_components/fotorama/fotorama.js',
     // 'src/bower_components/fullpage.js/dist/jquery.fullpage.min.js',
     // 'src/bower_components/gsap/src/minified/TweenMax.min.js',
@@ -104,7 +107,9 @@ gulp.task('my-scripts', function () {
     .pipe(babel())
     .pipe(concat('main.js'))
     .pipe(gulp.dest('build/js/'))
-    .pipe(uglify())
+    .pipe(uglify({
+      mangle: false
+    }))
     .pipe(concat('main.min.js'))
     .pipe(gulp.dest('build/js/'))
     .pipe(browserSync.reload({stream: true}));

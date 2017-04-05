@@ -116,8 +116,8 @@ gulp.task('my-scripts', function () {
 });
 
 // Обработка изображений
-gulp.task('images', function(){
-  return gulp.src('src/img/**/*')
+gulp.task('compress-images', function(){
+  return gulp.src('src/images/**/*')
     .pipe(imagemin([jpegRecompress({
         quality: 'medium'
       }), pngquant()],{
@@ -131,7 +131,7 @@ gulp.task('images', function(){
 });
 
 gulp.task('sprite', function() {
-  return gulp.src('src/img/icons/*.svg')
+  return gulp.src('src/images/icons/*.svg')
     .pipe(svgSymbols())
     .pipe(gulp.dest('build/img/icons/'));
 });
@@ -160,7 +160,8 @@ gulp.task('build', [
   'html',
   'sass',
   'my-scripts',
-  'images',
+  'compress-images',
+  'ready-images',
   'fonts'
 ]);
 
@@ -169,7 +170,8 @@ gulp.task('watch', ['browser-sync'], function(){
   gulp.watch('src/index.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['my-scripts']);
-  gulp.watch('src/img/**/*', ['images']);
+  gulp.watch('src/images/**/*', ['compress-images']);
+  gulp.watch('src/img/**/*', ['ready-images']);
   gulp.watch('src/fonts/**/*', ['fonts']);
 });
 

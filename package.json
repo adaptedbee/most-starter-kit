@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Frontend starter kit",
   "scripts": {
-    "postinstall": "cd src && mkdir fonts img && cd img && mkdir icons && cd ../scss && mkdir components"
+    "postinstall": "cd src && mkdir fonts img images && cd img && mkdir icons && cd ../images && mkdir icons && cd ../scss && mkdir components"
   },
   "repository": {},
   "author": "Mikhail Savotikov <adaptedbee@yandex.ru>",

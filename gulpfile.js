@@ -130,6 +130,12 @@ gulp.task('compress-images', function(){
     .pipe(browserSync.reload({stream: true}));
 });
 
+gulp.task('ready-images', function(){
+  return gulp.src('src/img/**/*')
+    .pipe(gulp.dest('build/img/'))
+    .pipe(browserSync.reload({stream: true}));
+});
+
 gulp.task('sprite', function() {
   return gulp.src('src/images/icons/*.svg')
     .pipe(svgSymbols())

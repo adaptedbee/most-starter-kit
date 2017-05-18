@@ -71,7 +71,7 @@ gulp.task('vendor-scripts', function(){
     // 'src/bower_components/bootstrap/dist/js/bootstrap.min.js',
     // 'src/bower_components/chosen/chosen.jquery.js',
     // 'src/bower_components/Croppie/croppie.min.js',
-    // 'src/bower_components/device.js/device.js',
+    // 'src/bower_components/device.js/lib/device.min.js',
     // 'src/bower_components/dropzone/dist/min/dropzone.min.js',
     // 'src/bower_components/exif-js/exif.js',
     // 'src/bower_components/fotorama/fotorama.js',

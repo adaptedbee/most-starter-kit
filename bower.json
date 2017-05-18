@@ -20,7 +20,7 @@
     "bootstrap": "^3.3.7",
     "chosen": "^1.6.2",
     "Croppie": "croppie#^2.4.1",
-    "device.js": "^0.0.3",
+    "device.js": "devicejs#^0.2.7",
     "dropzone": "^4.3.0",
     "exif-js": "^2.1.1",
     "font-awesome": "^4.7.0",

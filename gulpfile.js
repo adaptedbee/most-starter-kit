@@ -82,6 +82,7 @@ gulp.task('vendor-scripts', function(){
     // 'src/bower_components/jquery-mask-plugin/jquery.mask.min.js',
     // 'src/bower_components/jquery-ui/jquery-ui.min.js',
     // 'src/bower_components/magnific-popup/dist/jquery.magnific-popup.min.js',
+    // 'src/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
     // 'src/bower_components/ng-file-upload/ng-file-upload.min.js',
     // 'src/bower_components/ng-image-cropper/dist/angular-image-cropper.js',
     // 'src/bower_components/retinajs/dist/retina.min.js',

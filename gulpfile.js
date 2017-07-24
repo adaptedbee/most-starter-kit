@@ -175,7 +175,7 @@ gulp.task('build', [
 
 // Настройка watch
 gulp.task('watch', ['browser-sync'], function(){
-  gulp.watch('src/index.html', ['html']);
+  gulp.watch('src/*.html', ['html']);
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['my-scripts']);
   gulp.watch('src/images/**/*', ['compress-images']);

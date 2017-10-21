@@ -18,6 +18,7 @@
   "dependencies": {
     "angular": "1.6.3",
     "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
     "chosen": "^1.6.2",
     "Croppie": "croppie#^2.4.1",
     "device.js": "devicejs#^0.2.7",

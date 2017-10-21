@@ -1,10 +1,9 @@
 /* stylelint-disable */
 @import '../bower_components/normalize.css/normalize';
 
-// @import 'vendor/bootstrap-4.0.0-alpha.6/bootstrap-grid';
-
 // @import '../bower_components/bootstrap/dist/css/bootstrap.min';
 // @import '../bower_components/bootstrap/dist/css/bootstrap-theme.min';
+// @import '../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_grid';
 // @import '../bower_components/chosen/chosen';
 // @import '../bower_components/Croppie/croppie';
 // @import '../bower_components/dropzone/dist/min/dropzone.min';
@@ -23,10 +22,10 @@
 // @import '../bower_components/webui-popover/dist/jquery.webui-popover.min';
 /* stylelint-enable */
 
+@import 'common/__helpers';
 @import 'common/variables';
 @import 'common/general';
 @import 'common/fonts';
-@import 'common/__helpers';
 @import 'common/mixins';
 
 // @import 'components/header';

@@ -27,9 +27,12 @@ var notify = require("gulp-notify");
 
 var browserSync = require('browser-sync').create();
 
+var plumber = require('gulp-plumber');
+
 // Обработка HTML
 gulp.task('html', function() {
   return gulp.src('src/*.html')
+    .pipe(plumber())
     // .pipe(html5Lint())
     .pipe(gulp.dest('build/'))
     .pipe(browserSync.reload({stream: true}));
@@ -38,19 +41,22 @@ gulp.task('html', function() {
 // Обработка CSS
 gulp.task('sass', function(){
   return gulp.src('src/scss/main.scss')
-    .pipe(sass().on('error', function(err) {
-      return notify().write(err);
-    }))
+    .pipe(plumber())
+    .pipe(sass())
+    // .pipe(sass().on('error', function(err) {
+    //   return notify().write(err);
+    // }))
     .pipe(stylelint({
-      failAfterError: true,
+      failAfterError: false,
       debug: true,
       reporters: [{
         formatter: 'string',
         console: true
       }]
-    }).on('error', function(err) {
-      return notify().write(err);
     }))
+    // }).on('error', function(err) {
+    //   return notify().write(err);
+    // }))
     .pipe(postcss([ autoprefixer({
       browsers: ['> 1%', 'last 2 versions'],
       cascade: true
@@ -94,6 +100,7 @@ gulp.task('vendor-scripts', function(){
     // 'src/bower_components/velocity/velocity.min.js',
     // 'src/bower_components/webui-popover/dist/jquery.webui-popover.min.js',
     ])
+    .pipe(plumber())
     .pipe(concat('libs.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('build/js'))
@@ -102,6 +109,7 @@ gulp.task('vendor-scripts', function(){
 
 gulp.task('my-scripts', function () {
   return gulp.src('src/js/*.js')
+    .pipe(plumber())
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError().on('error', function(err) {
@@ -121,6 +129,7 @@ gulp.task('my-scripts', function () {
 // Обработка изображений
 gulp.task('compress-images', function(){
   return gulp.src('src/images/**/*')
+    .pipe(plumber())
     .pipe(imagemin([jpegRecompress({
         quality: 'medium'
       }), pngquant()],{
@@ -135,12 +144,14 @@ gulp.task('compress-images', function(){
 
 gulp.task('ready-images', function(){
   return gulp.src('src/img/**/*')
+    .pipe(plumber())
     .pipe(gulp.dest('build/img/'))
     .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('sprite', function() {
   return gulp.src('src/images/icons/*.svg')
+    .pipe(plumber())
     .pipe(svgSymbols())
     .pipe(gulp.dest('build/img/icons/'));
 });
@@ -148,6 +159,7 @@ gulp.task('sprite', function() {
 // Обработка шрифтов
 gulp.task('fonts', function() {
   return gulp.src('src/fonts/**/*.*')
+    .pipe(plumber())
     .pipe(gulp.dest('build/fonts/'));
 });
 

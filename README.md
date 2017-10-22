@@ -32,14 +32,11 @@ src/                            --> исходники проекта
   scss/                         --> файлы css-препроцессора
     common/                     --> общие стили проекта
       __helpers.scss            --> кросс-проектные миксины
-      __normalize.scss          --> normalize
       fonts.scss                --> стили шрифтов
       general.scss              --> общие стили страницы
       mixins.scss               --> миксины
       variables.scss            --> переменные
     components/                 --> стили компонентов страницы
-    vendor/                     --> внешние стили (js-плагины и т.д.)
-      bootstrap-4.0.0-alpha.6/  --> стили bootstrap (сетка)
     main.scss                   --> основной файл стилей
   index.html                    --> главная страница
 .babelrc                        --> файл конфигурации для babel
